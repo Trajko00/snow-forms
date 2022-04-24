@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noPropertyAccessFromIndexSignature": false,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
@@ -14,7 +15,18 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@giga-form/producer": [
+        "packages/giga-form/giga-form/producer/src/index.ts"
+      ],
+      "@snow-forms": ["packages/snow-forms/src/index.ts"],
+      "@snow-forms/consumer": ["packages/snow-forms/consumer/src/index.ts"],
+      "@snow-forms/module-producer": [
+        "packages/snow-forms/module-producer/src/index.ts"
+      ],
+      "@snow-forms/producer": ["packages/snow-forms/producer/src/index.ts"],
+      "@snow-forms/types": ["packages/snow-forms/types/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

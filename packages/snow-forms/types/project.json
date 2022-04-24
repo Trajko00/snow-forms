@@ -1,0 +1,35 @@
+{
+  "root": "packages/snow-forms/types",
+  "sourceRoot": "packages/snow-forms/types/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/snow-forms/types",
+        "tsConfig": "packages/snow-forms/types/tsconfig.lib.json",
+        "project": "packages/snow-forms/types/package.json",
+        "entryFile": "packages/snow-forms/types/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/snow-forms/types/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/snow-forms/types/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

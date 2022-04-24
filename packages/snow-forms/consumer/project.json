@@ -1,0 +1,45 @@
+{
+  "root": "packages/snow-forms/consumer",
+  "sourceRoot": "packages/snow-forms/consumer/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/snow-forms/consumer",
+        "tsConfig": "packages/snow-forms/consumer/tsconfig.lib.json",
+        "project": "packages/snow-forms/consumer/package.json",
+        "entryFile": "packages/snow-forms/consumer/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/snow-forms/consumer/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/snow-forms/consumer/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/snow-forms/consumer"],
+      "options": {
+        "jestConfig": "packages/snow-forms/consumer/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

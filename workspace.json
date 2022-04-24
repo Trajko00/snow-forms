@@ -1,4 +1,15 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "css-mod-testing": "packages/css-mod-testing",
+    "css-mod-testing-e2e": "packages/css-mod-testing-e2e",
+    "giga-form-giga-form-producer": "packages/giga-form/giga-form/producer",
+    "snow-forms-consumer": "packages/snow-forms/consumer",
+    "snow-forms-module-producer": "packages/snow-forms/module-producer",
+    "snow-forms-producer": "packages/snow-forms/producer",
+    "snow-forms-types": "packages/snow-forms/types",
+    "testing": "packages/testing",
+    "testing-e2e": "packages/testing-e2e",
+    "vite-app": "packages/vite-app"
+  }
 }

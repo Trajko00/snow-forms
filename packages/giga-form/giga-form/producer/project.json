@@ -1,0 +1,45 @@
+{
+  "root": "packages/giga-form/giga-form/producer",
+  "sourceRoot": "packages/giga-form/giga-form/producer/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/giga-form/giga-form/producer",
+        "tsConfig": "packages/giga-form/giga-form/producer/tsconfig.lib.json",
+        "project": "packages/giga-form/giga-form/producer/package.json",
+        "entryFile": "packages/giga-form/giga-form/producer/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "packages/giga-form/giga-form/producer/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/giga-form/giga-form/producer/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/giga-form/giga-form/producer"],
+      "options": {
+        "jestConfig": "packages/giga-form/giga-form/producer/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

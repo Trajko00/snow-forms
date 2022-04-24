@@ -1,0 +1,73 @@
+{
+  "root": "packages/css-mod-testing",
+  "sourceRoot": "packages/css-mod-testing/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "swc",
+        "outputPath": "dist/packages/css-mod-testing",
+        "index": "packages/css-mod-testing/src/index.html",
+        "baseHref": "/",
+        "main": "packages/css-mod-testing/src/main.tsx",
+        "polyfills": "packages/css-mod-testing/src/polyfills.ts",
+        "tsConfig": "packages/css-mod-testing/tsconfig.app.json",
+        "assets": [
+          "packages/css-mod-testing/src/favicon.ico",
+          "packages/css-mod-testing/src/assets"
+        ],
+        "styles": ["packages/css-mod-testing/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/css-mod-testing/src/environments/environment.ts",
+              "with": "packages/css-mod-testing/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "css-mod-testing:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "css-mod-testing:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/css-mod-testing/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/css-mod-testing"],
+      "options": {
+        "jestConfig": "packages/css-mod-testing/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

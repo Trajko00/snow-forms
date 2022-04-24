@@ -1,0 +1,45 @@
+{
+  "root": "packages/snow-forms/producer",
+  "sourceRoot": "packages/snow-forms/producer/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/snow-forms/producer",
+        "tsConfig": "packages/snow-forms/producer/tsconfig.lib.json",
+        "project": "packages/snow-forms/producer/package.json",
+        "entryFile": "packages/snow-forms/producer/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/snow-forms/producer/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/snow-forms/producer/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/snow-forms/producer"],
+      "options": {
+        "jestConfig": "packages/snow-forms/producer/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

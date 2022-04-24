@@ -1,0 +1,28 @@
+{
+  "root": "packages/css-mod-testing-e2e",
+  "sourceRoot": "packages/css-mod-testing-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "packages/css-mod-testing-e2e/cypress.json",
+        "devServerTarget": "css-mod-testing:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "css-mod-testing:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/css-mod-testing-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["css-mod-testing"]
+}
